@@ -3,8 +3,8 @@ public class Effect {
     static private final String[] SYMBOLS = new String[]{".", "..", "...", "....", ".....", "......", ".......", ".........",".........."};
 
     static void EffectWait() {
-        for (int j = 0; j < SYMBOLS.length; j++) {
-            System.out.print("Идёт процесс загрузки" + SYMBOLS[j] + "\r");
+        for (String symbol : SYMBOLS) {
+            System.out.print("Идёт процесс загрузки" + symbol + "\r");
             try {
                 Thread.sleep(DELAY);
             } catch (InterruptedException e) {
