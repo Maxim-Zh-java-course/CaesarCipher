@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class MainApp {
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args)  {
         int number;
         Scanner scanner = new Scanner(System.in);
 
