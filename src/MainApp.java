@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MainApp {
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -7,7 +8,6 @@ public class MainApp {
         Scanner scanner = new Scanner(System.in);
 
         Effect.EffectWait();
-        Effect.EffectLineStar(30);
 
         Effect.printMenu();
 
@@ -61,7 +61,34 @@ public class MainApp {
                     }
                     case 3 -> {
                         System.out.println("Расшифровка текста с помощью brute force (перебор всех вариантов):");
+                        System.out.println("Введите путь к файлу для расшифровки:");
+                        String filePath = scanner.nextLine();
+                        Effect.EffectWait();
+                        try {
+                            // Читаем зашифрованный текст
 
+                            String encryptedText = BruteForce.readTextFromFile(filePath);
+
+                            // Читаем трехбуквенные сочетания
+                            Set<String> trigrams = BruteForce.readTrigramsFromFile("src/BruteForce.txt");
+
+                            // Создаем объект Cipher
+                            Cipher cipher = new Cipher();
+
+                            // Подбираем лучший ключ
+                            int bestKey = BruteForce.findBestKey(encryptedText, trigrams, cipher, 33);
+
+                            // Расшифровываем текст
+                            String decryptedText = cipher.decrypt(encryptedText, bestKey);
+                            Effect.EffectLineStar(30);
+                            // Вывод результата
+                            System.out.println("Лучший ключ: " + bestKey);
+                            System.out.println("Расшифрованный текст: ");
+                            System.out.println(decryptedText);
+
+                        } catch (IOException e) {
+                            System.err.println("Ошибка: " + e.getMessage());
+                        }
                         Effect.printMenu();
                     }
                     case 0 -> {
