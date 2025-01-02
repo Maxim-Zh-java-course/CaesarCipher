@@ -1,12 +1,12 @@
 public class Effect {
-    static private int delay = 250;
-    static private String[] symbols = new String[]{".", "..", "...", "....", ".....", "......", ".......", ".........",".........."};
+    static private final int DELAY = 250;
+    static private final String[] SYMBOLS = new String[]{".", "..", "...", "....", ".....", "......", ".......", ".........",".........."};
 
     static void EffectWait() {
-        for (int j = 0; j < symbols.length; j++) {
-            System.out.print("Идёт процесс загрузки" + symbols[j] + "\r");
+        for (int j = 0; j < SYMBOLS.length; j++) {
+            System.out.print("Идёт процесс загрузки" + SYMBOLS[j] + "\r");
             try {
-                Thread.sleep(delay);
+                Thread.sleep(DELAY);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
