@@ -1,6 +1,6 @@
 public class Effect {
-    static int delay = 250;
-    static String[] symbols = new String[]{".", "..", "...", "....", ".....", "......", ".......", ".........",".........."};
+    static private int delay = 250;
+    static private String[] symbols = new String[]{".", "..", "...", "....", ".....", "......", ".......", ".........",".........."};
 
     static void EffectWait() {
         for (int j = 0; j < symbols.length; j++) {
@@ -17,7 +17,7 @@ public class Effect {
     static void EffectLineStar(int star) {
         System.out.println("*".repeat(star));
     }
-
+// IDE подсказала как можно по другому выстроить длинный sout - красиво !!!
     static void printMenu() {
         Effect.EffectLineStar(30);
         System.out.println("""
