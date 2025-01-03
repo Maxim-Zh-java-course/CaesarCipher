@@ -76,7 +76,7 @@ public class MainApp {
                             Cipher cipher = new Cipher();
 
                             // Подбираем лучший ключ
-                            int bestKey = BruteForce.findBestKey(encryptedText, trigrams, cipher, 33);
+                            int bestKey = BruteForce.findBestKey(encryptedText, trigrams, cipher, cipher.lengthAlphabet);
 
                             // Расшифровываем текст
                             String decryptedText = cipher.decrypt(encryptedText, bestKey);
